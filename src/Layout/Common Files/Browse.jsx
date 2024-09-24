@@ -32,57 +32,57 @@ export let products = [
         'pimg': pimg,
         'phead':"Demo1",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 500',
-        'regularprice':'Rs 1000'
+        'saleprice':500,
+        'regularprice':1000
     },
     {
         'pimg': pimg2,
         'phead':"Demo2",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 300',
-        'regularprice':'Rs 500'
+        'saleprice':300,
+        'regularprice':500
     },
     {
         'pimg': pimg3,
         'phead':"Demo3",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 2000',
-        'regularprice':'Rs 7000'
+        'saleprice':2000,
+        'regularprice':7000
     },
     {
         'pimg': pimg4,
         'phead':"Demo4",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 350',
-        'regularprice':'Rs 650'
+        'saleprice':350,
+        'regularprice':'650'
     },
     {
         'pimg': pimg5,
         'phead':"Demo5",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 543',
-        'regularprice':'Rs 768'
+        'saleprice':543,
+        'regularprice':'768'
     },
     {
         'pimg': pimg6,
         'phead':"Demo6",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 444',
-        'regularprice':'Rs 666'
+        'saleprice':444,
+        'regularprice':'666'
     },
     {
         'pimg': pimg7,
         'phead':"Demo7",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 245',
-        'regularprice':'Rs 345'
+        'saleprice':245,
+        'regularprice':'345'
     },
     {
         'pimg': pimg8,
         'phead':"Demo8",
         'des':'This Is Demo Product',
-        'saleprice':'Rs 245',
-        'regularprice':'Rs 345'
+        'saleprice':245,
+        'regularprice':'345'
     },
 
     

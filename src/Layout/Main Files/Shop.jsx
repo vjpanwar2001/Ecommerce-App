@@ -55,7 +55,7 @@ function Shop() {
                     <h1 className='font-bold text-[24px] text-[#3A3A3A]'>{v.phead}</h1>
                     <p className='text-[#898989] text-[16px] font-[600]'>{v.des}</p>
                     <div className='flex items-center gap-3 '>
-                      <p className='font-bold text-[20px]'>{v.saleprice}</p>
+                      <p className='font-bold text-[20px]'>Rs {v.saleprice}</p>
                       <p className='text-[#B0B0B0] text-[16px] line-through'>{v.regularprice}</p>
                     </div>
                   </div>

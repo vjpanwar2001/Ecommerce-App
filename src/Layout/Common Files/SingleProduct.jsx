@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react'
 import Header from './Header'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import Footer from './Footer';
 import { products } from './Browse';
 import  { MyContext } from '../Context/MainContext';
 function SingleProduct() {
+  let navigate = useNavigate();
     let {shopId} = useParams();
     let {setCart} = useContext(MyContext);
       const singlepro = products?.filter((a)=>a.phead==shopId)[0]
@@ -15,7 +16,7 @@ function SingleProduct() {
         let updateData  = [...setItem,singlepro];
 
         setCart(localStorage.setItem('cartData',JSON.stringify(updateData)));
-
+        navigate("/cart");
       }
     
   return (
@@ -37,7 +38,7 @@ function SingleProduct() {
         </div>
         <div className='w-[50%]'>
             <h1 className='text-[42px] '>{singlepro.phead}</h1>
-            <p className='font-[500] text-[20px] text-[#9F9F9F]'>{singlepro.saleprice}</p>
+            <p className='font-[500] text-[20px] text-[#9F9F9F]'>Rs {singlepro.saleprice}</p>
             <p className='text-[13px] py-2'>{singlepro.des}
             </p>
             <div className='flex py-4 gap-4'>
