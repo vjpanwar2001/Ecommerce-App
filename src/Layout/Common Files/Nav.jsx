@@ -1,17 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import cart1 from '../../img/Vector (1).svg'
 import xcross from '../../img/xcross.svg'
+import { MyContext } from '../Context/MainContext';
 function Nav() {
 
       let [modal , setModal] = useState(false);
+      let {cart , deleteCartData} = useContext(MyContext);
+
 
 
   return (
     <>
         
 
-<nav className="bg-white border-gray-200">
+<nav className="bg-white border-gray-200 ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <Link href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
         <h5 className='self-center text-2xl font-semibold whitespace-nowrap dark:text-black'>Ecommerce</h5>
@@ -37,40 +40,54 @@ function Nav() {
         </li>
       </ul>
     </div>
-    <div>
+    <div className='relative'>
            <button onClick={()=>setModal(!modal)}><img src={cart1} width={20}/></button> 
+           <span className='absolute text-red-600 font-bold right-[-11px] top-[33%]  translate-y-[-50%]'>
+            {cart && cart.length > 0 ? cart.length : 0}
+           </span>
     </div>
   </div>    
 </nav>
-    {modal && <div className={`w-[100%] h-[100vh]  absolute bg-[rgba(0,0,0,0.6)]`}></div>}
-    <div className={`w-[350px] pt-[10px]    bg-[#B88E2F] absolute right-0 top-0 ${modal==true ? 'block':'hidden'}`}>
+  
+    <div className={`w-[350px] pt-[10px]    bg-[#B88E2F] absolute duration-[1s]  top-0 ${modal==true ? 'right-0':'right-[-30%]'}`}>
       <div className='flex items-center justify-between px-[10px]'>
       <h1 className=' text-[20px]  text-white font-bold'>Shopping Cart</h1>
       <span className='float-right text-white text-[30px] cursor-pointer mr-4' onClick={()=>setModal(false)}>&times;</span>
       </div>
      
-      <div className='bg-white h-[300px] pt-5  px-5  mt-6 flex flex-col justify-between '>
-          <div className='flex gap-[20px] mb-5 items-center justify-between   '>
-            <div className='w-[100px] h-[100px] rounded-md overflow-hidden '>
-              <img className='w-full h-full object-cover ' src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg" alt="" />
-            </div>
-            <div> 
-              <h1 className='font-[arial] text-[18px] font-bold'>Product Name</h1>
-              <div className='flex gap-[40px] font-[arial]'>
-                <span className='text-[18px] '>1</span>
-                <span className='text-[18px] text-[#B88E2F]'>Price</span>
-              </div>
-            </div>
-            <div className=''>
-                <img src={xcross} alt="" />
+      <div className=' bg-black h-[81vh] overflow-y-scroll   pt-5  px-5  mt-6 flex flex-col  customscrollbar'>
+        {
+          cart && cart.length>0 ?
+          cart.map((v,i)=>{
+            return(
+              <div className='flex gap-[20px] mb-5 items-center justify-between text-white   '>
+          <div className='w-[100px] h-[100px] rounded-md overflow-hidden '>
+            <img className='w-full h-full object-cover ' src={v.pimg} alt="" />
+          </div>
+          <div> 
+            <h1 className='font-[arial] text-[18px] font-bold'>{v.phead}</h1>
+            <div className='flex gap-[40px] font-[arial]'>
+              <span className='text-[18px] '>1</span>
+              <span className='text-[18px] text-[#B88E2F]'>Rs {v.saleprice}</span>
             </div>
           </div>
-          <div className='flex items-center justify-center gap-2 border-t-2 pt-5 border-black pb-5'>
-              <Link to={'/cart'}><button className='border border-black text-[13px] font-[500] font-[arial] px-8 rounded-full py-1'>Cart</button></Link>
-              <button className='border border-black text-[13px] font-[500] font-[arial] px-8 rounded-full py-1'>Checkout</button>
+          <div className=''  onClick={() => deleteCartData(i)}>
+              <img src={xcross} alt="" />
           </div>
+        </div>  
+            )
+          }) :
+          <h1 className='w-full text-center text-white  h-[80vh] leading-[80vh] align-middle'>Cart Is Empty</h1>
+          
+        }
+         
+         
           
       </div>
+      <div className='flex items-center justify-center bg-black gap-2 pt-5 pb-5 text-white'>
+              <Link to={'/cart'}><button className='border border-white text-[13px] font-[500] font-[arial] px-8 rounded-full py-1'>Cart</button></Link>
+              <button className='border border-white text-[13px] font-[500] font-[arial] px-8 rounded-full py-1'>Checkout</button>
+          </div>
     </div>
     </>
   )

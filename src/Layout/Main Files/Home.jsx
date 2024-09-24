@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <Header/>
-      <div className='h-[90vh] bg-cover bg-center  w-full  pr-[50px] flex items-center justify-end' style={{backgroundImage:`url('${mainimg}')`}}>
+      <div className='h-[90vh] bg-cover bg-center  w-full  pr-[50px] flex items-center justify-end ' style={{backgroundImage:`url('${mainimg}')`}}>
         <div className='w-[35%] p-[50px_30px] bg-[#FFF3E3] flex flex-col items-start   '>
           <h2 className='font-bold uppercase'>New Arrival</h2>
           <h1 className='font-bold text-4xl py-3 text-[#B88E2F]'>Discover Our <br/>New Collection </h1>
