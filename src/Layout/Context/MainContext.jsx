@@ -1,12 +1,32 @@
 import React, { createContext, useState } from 'react'
+import { useParams } from 'react-router';
+import { products } from '../Common Files/Browse';
+
+
 const MyContext = createContext();
 export default function MainContext({ children }) {
   let [cart, setCart] = useState([]);
   let [total, setTotal] = useState(0);
+  let [shopId , setShopId] =  useState('');  
 
-  // console.log(cart)
+      const singlepro = products?.filter((a)=>a.phead==shopId)[0]
+      
+      function addToCart(){
+        let setItem = JSON.parse(localStorage.getItem('cartData')) || [];
+    
+        let updateData  = [...setItem,singlepro];
+    
+        setCart(localStorage.setItem('cartData',JSON.stringify(updateData)));
+        
+      }
+      function multiAddToCart(v){
+        let allcartdata = JSON.parse(localStorage.getItem('cartData')) || [];
+        let multidata = [...allcartdata,v]
+        localStorage.setItem('cartData',JSON.stringify(multidata))
+        setCart(multidata )
+      }
   function calculateAmount(cartItems) {
-    console.log(cartItems)
+    
     let calcTotal = cartItems.reduce((acc, item) => {
       return acc + (item.saleprice * item.quantity)
     }, 0)
@@ -66,7 +86,7 @@ export default function MainContext({ children }) {
 
 
   return (
-    <MyContext.Provider value={{ cart, setCart, deleteCartData, calculateAmount, total, setTotal, plusQuantity , minusQuantity }}>
+    <MyContext.Provider value={{ cart, setCart, deleteCartData, calculateAmount, total, setTotal, plusQuantity , minusQuantity  ,setShopId , addToCart,multiAddToCart , shopId , singlepro}}>
       {children}
     </MyContext.Provider>
   )

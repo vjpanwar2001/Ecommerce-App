@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../Common Files/Header'
 import aboutimg from '../../img/Rectangle 1.png'
 import icon1 from '../../img/system-uicons_filtering.svg'
@@ -7,7 +7,10 @@ import icon3 from '../../img/ci_grid-big-round.svg'
 import { products } from '../Common Files/Browse'
 import Footer from '../Common Files/Footer'
 import { Link } from 'react-router-dom'
+import { MyContext } from '../Context/MainContext'
 function Shop() {
+  let {multiAddToCart} = useContext(MyContext);
+
   return (
     <>
     <Header/>
@@ -54,9 +57,10 @@ function Shop() {
                   <div className='w-full bg-[#F4F5F7] p-3 font-arial'>
                     <h1 className='font-bold text-[24px] text-[#3A3A3A]'>{v.phead}</h1>
                     <p className='text-[#898989] text-[16px] font-[600]'>{v.des}</p>
-                    <div className='flex items-center gap-3 '>
+                    <div className='flex items-center justify-between gap-3 '>
                       <p className='font-bold text-[20px]'>Rs {v.saleprice}</p>
-                      <p className='text-[#B0B0B0] text-[16px] line-through'>{v.regularprice}</p>
+                      <p className='text-[#B0B0B0] text-[16px] line-through'>Rs {v.regularprice}</p>
+                      <button  onClick={()=>multiAddToCart(v)}  className='border border-black px-3 text-[15px] rounded-md'>Add</button>
                     </div>
                   </div>
                 </div>

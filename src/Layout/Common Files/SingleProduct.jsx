@@ -1,23 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import Header from './Header'
-import { useNavigate, useParams } from 'react-router'
+import {useParams } from 'react-router'
 import Footer from './Footer';
 import { products } from './Browse';
 import  { MyContext } from '../Context/MainContext';
+import { Link } from 'react-router-dom';
 function SingleProduct() {
-  let navigate = useNavigate();
-    let {shopId} = useParams();
-    let {setCart} = useContext(MyContext);
-      const singlepro = products?.filter((a)=>a.phead==shopId)[0]
-      
-      function addToCart(){
-        let setItem = JSON.parse(localStorage.getItem('cartData')) || [];
+  
+    let {shopname} = useParams();
 
-        let updateData  = [...setItem,singlepro];
-
-        setCart(localStorage.setItem('cartData',JSON.stringify(updateData)));
-        navigate("/cart");
-      }
+    let { setCart ,setShopId , addToCart , shopId , singlepro} = useContext(MyContext);
+    setShopId(shopname)
+    
     
   return (
       <>
@@ -43,12 +37,11 @@ function SingleProduct() {
             </p>
             <div className='flex py-4 gap-4'>
                 <input type="number" className='border px-2 py-2 rounded-md' value={singlepro.quantity} min="1" max="10"  />
-               <button onClick={addToCart} className='border border-black px-5 rounded-md'>Add To Cart</button>
+               <Link to={"/cart"}><button onClick={addToCart} className='border border-black px-5 rounded-md'>Add To Cart</button></Link>
            </div>     
         </div>
   </div>
       }
-    
       <Footer/>
     </>
   )

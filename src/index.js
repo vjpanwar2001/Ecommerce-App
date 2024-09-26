@@ -33,7 +33,7 @@ let router = createBrowserRouter([
       'element':<Contact  />
     },
     {
-      'path':'/shop/:shopId',
+      'path':'/shop/:shopname',
       'element':<SingleProduct/>
     }
 ])

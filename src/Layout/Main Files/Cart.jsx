@@ -5,7 +5,6 @@ import aboutimg from '../../img/Rectangle 1.png'
 import { MyContext } from '../Context/MainContext'
 
 function Cart() {
-
   
   let { cart, setCart ,deleteCartData , calculateAmount , total , plusQuantity , minusQuantity   } = useContext(MyContext)
 
@@ -15,21 +14,13 @@ function Cart() {
     calculateAmount(getCartData);
   }, [])
 
-  
-
-  
-
-
-
-
-
   return (
     <>
       <Header />
       <div className='w-full h-[200px] flex flex-col justify-center items-center ' style={{ backgroundImage: `url('${aboutimg}')` }}>
         <h1 className='text-[48px] font-[500]'>Cart</h1>
         <div className='font-[500]'>
-          <span>Home <span>></span> Cart</span>
+          <span>Home <span> | </span> Cart</span>
         </div>
       </div>
 
@@ -78,15 +69,12 @@ function Cart() {
             </table>
           </div>
           <div className=' bg-[#F9F1E7] py-4'>
-            <h2 className='text-[30px] text-center font-bold'>Cart Totals</h2>
-          
+            <h2 className='text-[30px] text-center font-bold'>Cart Totals</h2>   
             <ul className='text-center py-3 flex flex-col gap-[10px]'>
             <li>Subtotal : {total} </li>
             <li>Total : {total} </li>
-
           </ul>   
             <div className="text-center">
-
               <button className='px-8 py-2 my-4 border border-black rounded-lg font-bold'>Check Out</button>
             </div>
           </div>
