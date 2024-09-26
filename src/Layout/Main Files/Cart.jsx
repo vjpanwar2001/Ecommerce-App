@@ -7,7 +7,7 @@ import { MyContext } from '../Context/MainContext'
 function Cart() {
 
   
-  let { cart, setCart ,deleteCartData , calculateAmount , total , setTotal } = useContext(MyContext)
+  let { cart, setCart ,deleteCartData , calculateAmount , total , plusQuantity , minusQuantity   } = useContext(MyContext)
 
   useEffect(() => {
     let getCartData = JSON.parse(localStorage.getItem('cartData')) || [];
@@ -59,7 +59,10 @@ function Cart() {
                         </td>
                         <td>Rs { v.saleprice}</td>
                         <td>
-                          Quantity
+                          <button className='bg-black text-white w-[30px] h-[30px]' onClick={()=>plusQuantity(i,++v.quantity)}>+</button>
+                          <input  type="number" className='mx-4 w-[40px]' value={v.quantity}/>
+                          <button className='bg-black text-white w-[30px] h-[30px]' onClick={()=>minusQuantity(i,--v.quantity)}>-</button>
+
                         </td>
                         <td>Rs { v.saleprice}</td>
                       </tr>

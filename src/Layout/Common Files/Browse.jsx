@@ -33,56 +33,64 @@ export let products = [
         'phead':"Demo1",
         'des':'This Is Demo Product',
         'saleprice':500,
-        'regularprice':1000
+        'regularprice':1000,
+        'quantity':1
     },
     {
         'pimg': pimg2,
         'phead':"Demo2",
         'des':'This Is Demo Product',
         'saleprice':300,
-        'regularprice':500
+        'regularprice':500,
+        'quantity':1
     },
     {
         'pimg': pimg3,
         'phead':"Demo3",
         'des':'This Is Demo Product',
         'saleprice':2000,
-        'regularprice':7000
+        'regularprice':7000,
+        'quantity':1
     },
     {
         'pimg': pimg4,
         'phead':"Demo4",
         'des':'This Is Demo Product',
         'saleprice':350,
-        'regularprice':'650'
+        'regularprice':'650',
+        'quantity':1
     },
     {
         'pimg': pimg5,
         'phead':"Demo5",
         'des':'This Is Demo Product',
         'saleprice':543,
-        'regularprice':'768'
+        'regularprice':'768',
+        'quantity':1
     },
     {
         'pimg': pimg6,
         'phead':"Demo6",
         'des':'This Is Demo Product',
         'saleprice':444,
-        'regularprice':'666'
+        'regularprice':'666',
+        'quantity':1
     },
     {
         'pimg': pimg7,
         'phead':"Demo7",
         'des':'This Is Demo Product',
         'saleprice':245,
-        'regularprice':'345'
+        'regularprice':'345',
+        'quantity':1
     },
     {
         'pimg': pimg8,
         'phead':"Demo8",
         'des':'This Is Demo Product',
         'saleprice':245,
-        'regularprice':'345'
+        'regularprice':'345',
+        'quantity':1
     },
 
     

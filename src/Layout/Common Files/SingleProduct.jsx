@@ -42,9 +42,9 @@ function SingleProduct() {
             <p className='text-[13px] py-2'>{singlepro.des}
             </p>
             <div className='flex py-4 gap-4'>
-                <input type="number" className='border px-2 py-2 rounded-md' value="1" min="1" max="10"  />
+                <input type="number" className='border px-2 py-2 rounded-md' value={singlepro.quantity} min="1" max="10"  />
                <button onClick={addToCart} className='border border-black px-5 rounded-md'>Add To Cart</button>
-           </div>   
+           </div>     
         </div>
   </div>
       }

@@ -6,7 +6,7 @@ import { MyContext } from '../Context/MainContext';
 function Nav() {
 
       let [modal , setModal] = useState(false);
-      let {cart , deleteCartData} = useContext(MyContext);
+      let {cart , deleteCartData , plusQuantity , minusQuantity} = useContext(MyContext);
 
 
 
@@ -60,15 +60,21 @@ function Nav() {
           cart && cart.length>0 ?
           cart.map((v,i)=>{
             return(
-              <div className='flex gap-[20px] mb-5 items-center justify-between text-white   '>
+              <div className='flex gap-[20px] mb-5 items-center justify-around text-white   '>
           <div className='w-[100px] h-[100px] rounded-md overflow-hidden '>
             <img className='w-full h-full object-cover ' src={v.pimg} alt="" />
           </div>
           <div> 
             <h1 className='font-[arial] text-[18px] font-bold'>{v.phead}</h1>
-            <div className='flex gap-[40px] font-[arial]'>
-              <span className='text-[18px] '>1</span>
-              <span className='text-[18px] text-[#B88E2F]'>Rs {v.saleprice}</span>
+            <div className='flex flex-col text-black font-[arial] '>
+            <span className='text-[18px] text-[#B88E2F]'>Rs {v.saleprice}</span>
+
+              <div>
+              <button className='bg-black text-white w-[30px] h-[30px]' onClick={()=>plusQuantity(i,++v.quantity)}>+</button>
+                          <input  type="number" className='mx-4 w-[40px]' value={v.quantity}/>
+                          <button className='bg-black text-white w-[30px] h-[30px]' onClick={()=>minusQuantity(i,--v.quantity)}>-</button>
+              </div>
+            
             </div>
           </div>
           <div className=''  onClick={() => deleteCartData(i)}>
@@ -80,8 +86,6 @@ function Nav() {
           <h1 className='w-full text-center text-white  h-[80vh] leading-[80vh] align-middle'>Cart Is Empty</h1>
           
         }
-         
-         
           
       </div>
       <div className='flex items-center justify-center bg-black gap-2 pt-5 pb-5 text-white'>
